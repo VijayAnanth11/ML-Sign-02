@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="Images/asl_logo.ico" />
+    <title>Sign Translator</title>
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans:100,300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/animate.css">
+    <script src="dist/build.js"></script>
+
+    <link rel="stylesheet" href="CSS/new.css">
+
+    <!-- //New Test -->
+    <link rel="stylesheet" href="./check/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+
+<body style="background-color: rgb(218, 218, 213);">
+    <!--Welcome Screen-->
+    <div id="welcomeContainer" class="animated" style="background-color: rgb(218, 218, 213);">
+        <div class="nav">
+            <div>
+                <p style="font-size: 25px; font-weight: bold; margin-left: 1rem;">Machine Learning Based</p>
+            </div>
+            <div class="dp">
+                <img src="./Images/set/1.png" class="img1">
+            </div>
+            <div>
+                <p style="font-size: 20px; font-weight: bold; margin-left: 1rem; margin-top: 3rem;">Sign Language
+                    Translate System</p>
+            </div>
+        </div>
+
+        <div id="welcomeScreen">
+            <div class="cover">
+                <img src="./Images/set/3.jpg" class="img1">
+            </div>
+            <h1 style="color: rgb(73, 2, 2);">Welcome to !!!.. </h1>
+            <h2 style="color: rgb(73, 2, 2);">Sign Language Translator</h2>
+            <h3 class="animated fadeInUp delay-2s">Join Here</h3>
+        </div>
+        <button id="proceedButton" class="btn1">Proceed</button>
+    </div>
+
+    <!-- Next Screen -->
+    <div id="titleBar">
+        <h1 id="stage" style="color: rgb(73, 2, 2);">Train Gestures</h1>
+        <h3 id="steps" style="color: rgb(73, 2, 2);">Train about 30 samples of your Start Gesture and 30 for your idle,
+            Stop Gesture.</h3>
+        <button id="nextButton" class="animated flash delay-3s">Next</button>
+        <button id="predictButton" class="animated flash slideInRight faster">Translate</button>
+        <button id="backButton" class="animated slideInLeft faster">Back to Training</button>
+        <button id="videoCallBtn" class="videoCallBtn animated slideInRight faster"></button>
+    </div>
+
+    <!--Status bar shows the status of translation-->
+    <div id="status">
+        <p id="status-text">Status: Not Ready</p>
+    </div>
+
+    <!--The Translator Window displays the video of the user, various buttons, and holds
+    the training and translation screens-->
+    <div id="translatorWindow">
+
+        <!--Initial Training Holder creates the screen where users train Start and Stop Gestures-->
+        <div id="initialTrainingHolder">
+            <img src="" alt="checkmark" id="checkmark_startButton" class="checkMark">
+            <button id="startButton" class="trainButton ">Start Gesture</button>
+            <button id="clear_startButton" class="clearButton" style="margin-top: 0.5rem;">Clear</button>
+            <h3 id="counter_startButton" class="counter"></h3>
+
+            <button id="stopButton" class="trainButton ">Stop Gesture</button>
+            <button id="clear_stopButton" class="clearButton" style="margin-top: 0.5rem;">Clear</button>
+            <h3 id="counter_stopButton" class="counter"></h3>
+            <img src="" alt="checkmark" id="checkmark_stopButton" class="checkMark">
+        </div>
+
+        <!--Video Holder displays the video feed from the user for training and translation.
+        It also displays the Video Call feed once the user decides to do that-->
+        <div id="videoHolder" class="videoContainerTrain">
+            <video id="video" class="videoTrain" src='' muted autoplay playsinline></video>
+            <iframe
+                src="https://tokbox.com/embed/embed/ot-embed.js?embedId=f37957b6-0f91-4fc5-90ce-f818cc85b5bf&room=DEFAULT_ROOM&iframe=true"
+                width=650 height=370 allow="microphone; camera" id="videoCall"></iframe>
+        </div>
+
+        <!--Training Holder displays the screen where users add and train new gestures-->
+        <div id="trainingHolder">
+            <h5 id="add-gesture">Add Gesture</h5>
+            <img src="Images/plus_sign.svg" alt="Plus Sign" id="plus_sign" class="plus_sign animated">
+            <form id="add-word" autocomplete="off">
+                <!-- <input type="text" id="new-word" placeholder="New Gesture Title"> -->
+                <div class="search-input">
+                    <a href="" target="_blank" hidden></a>
+                    <input type="text" id="new-word" placeholder="New Gesture Title">
+                    <div class="autocom-box">
+                        <!-- here list are inserted from javascript -->
+                    </div>
+                    <div class="icon"><i class="fas fa-search"></i></div>
+                </div>
+                <input type="submit" id="submit-word" value="Add Word &#9658;" style="cursor: pointer; margin-top: 10px;">
+            </form>
+
+            <!-- Filter -->
+            <button id="doneRetrain" class="doneRetrain">Done Retraining</button>
+
+            <div id="trainingCommands"></div>
+        </div>
+
+        <!--Translation Holder is where the Gesture Card and Text that was translated is displayed.-->
+        <div id="translationHolder">
+            <div id="translatedCard">
+            </div>
+            <h3 id="translationText">Start Signing!</h3>
+        </div>
+    </div>
+
+    <!--Trained Card Holder contains all the trained gestures' cards.
+    It is outside the Training and Translation Windows because it has to be displayed on both screens-->
+    <div id="trainedCardsHolder">
+    </div>
+
+
+    <!-- script -->
+    <script src="./script.js"></script>
+
+    <!-- new Test -->
+    <script src="./check/suggestions.js"></script>
+    <script src="./check//script.js"></script>
+</body>
+
+</html>

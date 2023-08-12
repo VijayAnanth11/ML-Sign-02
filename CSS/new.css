@@ -1,0 +1,27 @@
+.nav{
+    background-color: #001314;
+    padding: 0.8rem;
+    color: white;
+    display: flex;
+}
+.dp{
+    background-color: yellow;
+    height: 70px;
+    width: 70px;
+    border-radius: 70px;
+    margin-left: 4rem;
+    margin-top: 1rem;
+}
+.img1{
+    height: 100%;
+    width: 100%;
+}
+.cover{
+    width: 900px;
+    height: 250px;
+    background-color: yellow;
+    margin-top: -5rem;
+}
+.btn1{
+    margin-top: -7rem;
+}
